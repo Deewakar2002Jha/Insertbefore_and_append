@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InsertBefore</title>
+</head>
+<body>
+    <h1>Oklabs Student</h1>
+    <ul id="mystudent">
+        <li>Deewakar jha</li>
+        <li>sorva kumar</li>
+    </ul>
+    <button onclick="addNewStudent('kiran')">Add New Student</button>
+    <script>
+        //Lets Create an array
+
+        //1.[] ES6 // New Fashion
+        //2. new Array() //Old Fashion
+
+        var students = [];
+
+        // function defination
+
+        function addNewStudent(studname){
+        //function body
+        //when ever create a function use ALERT to check function working
+        // alert('ok '+ studname);// + concatination oprator
+
+        //using prompt to take value from user
+        //prompt also return a value
+
+        console.log(students);
+        
+        var sn = prompt('Enter Student Name');
+
+        //Immeditaly check if the student is availble in array or not
+        var isAvailable = false;
+        isAvailable = students.find(function(currentValue,index,arr){
+            //Condition?true:false
+            return (currentValue === sn)?true:false;//ternary Operator
+        });
+        if(isAvailable){
+            //availble
+
+        }else{
+            //not availble
+
+            students.push(sn);
+
+            console.log(sn);
+        
+            l = document.createElement('li');
+            // l.innerHTML = sn;
+            var tn = document.createTextNode(sn);
+            l.append(tn);
+
+            console.log(l);
+
+            var x = document.getElementById("mystudent");
+            console.log(x.childNodes);
+            //using this to insert element first
+            /*console.log(x.childNodes[1]);
+            x.insertBefore(l, document.querySelector('#mystudent > li:first-child'));
+            */
+                
+            //to insert element in last
+            x.appendChild(l);
+            /*
+            syntax:-
+            node.insertBefore(newnode,exittingnode)
+            */
+            }
+        
+        
+        }
+        
+
+        var l;//js Hoisting //var is global variable scope
+    </script>
+</body>
+</html>
